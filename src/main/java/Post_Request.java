@@ -1,15 +1,12 @@
-import org.json.simple.parser.ParseException;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Post_Request {
 
-    //  public static void main(String[] args) throws IOException, ParseException {
+
 
     public static HttpURLConnection Post_RG() throws IOException {
 
@@ -20,6 +17,7 @@ public class Post_Request {
         httpConnection.setRequestMethod("POST");
         httpConnection.setRequestProperty("Content-Type", "application/json");
         httpConnection.setRequestProperty("Accept", "application/json");
+
 
         httpConnection.setDoOutput(true);
         OutputStream outStream = httpConnection.getOutputStream();
