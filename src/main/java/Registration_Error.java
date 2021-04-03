@@ -4,36 +4,31 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Register_Response_Print
-{
+public class Registration_Error {
 
-    public static Object print_Response() {
+
+    public static Object print_Request() {
 
         JSONParser jsonParser = new JSONParser();
 
-        try {FileReader reader = new FileReader(Constans_Page.Register_Response_Json);
+        try {
+            FileReader reader = new FileReader(Constans_Page.Error_Json);
 
 
             Object obj = jsonParser.parse(reader);
 
 
-
-
-            System.out.println("Post Register Response"+obj);
+            System.out.println("Post Register Error:" + obj);
             return obj;
 
 
-
-
+        } catch (ParseException e) {
+            e.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
         return true;
     }
-
-
-    }
+}

@@ -7,22 +7,20 @@ import java.net.URL;
 
 public class Login_Request_Print {
 
-    //@SuppressWarnings("unchecked")
-    //  public static void main(String[] args)
+
     public static Object print_Request() {
-        //JSON parser object to parse read file
+
         JSONParser jsonParser = new JSONParser();
 
         try {
-            FileReader reader = new FileReader("Login_Request.json");
+            FileReader reader = new FileReader(Constans_Page.Login_Request_Print);
 
-            //Read JSON file
+
             Object obj = jsonParser.parse(reader);
 
 
-            // JSONArray employeeList = (JSONArray) obj;
 
-            System.out.println(obj);
+            System.out.println("Login Request"+obj);
             return obj;
 
 
@@ -40,7 +38,7 @@ public class Login_Request_Print {
 
 
 
-            URL url = new URL("https://api.frs1.ott.kaltura.com/api_v3/service/ottuser/action/login");
+            URL url = new URL(Constans_Page.Assert_API_Login);
             HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
 
             httpConnection.setRequestMethod("POST");
@@ -50,14 +48,14 @@ public class Login_Request_Print {
             httpConnection.setDoOutput(true);
             OutputStream outStream = httpConnection.getOutputStream();
             OutputStreamWriter outStreamWriter = new OutputStreamWriter(outStream, "UTF-8");
-            outStreamWriter.write("Login_Request.json");
+            outStreamWriter.write(Constans_Page.Login_Request_Print);
             outStreamWriter.flush();
             outStreamWriter.close();
             outStream.close();
 
 
 
-              System.out.println(httpConnection.getHeaderFields());
+              System.out.println("Print Login Headers"+httpConnection.getHeaderFields());
 
         return httpConnection;
         }

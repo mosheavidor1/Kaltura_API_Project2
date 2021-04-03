@@ -1,0 +1,10 @@
+{
+  "executionTime": 0.19879,
+  "result": {
+    "error": {
+      "code": "2014",
+      "message": "User exists",
+      "objectType": "KalturaAPIException"
+    }
+  }
+}
